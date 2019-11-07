@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import getUsers, { deleteUser } from "./api/userApi";
 
 function App() {
   const h1Style = {
@@ -13,12 +14,21 @@ function App() {
     { id: 4, name: "Jack", email: "Jack@j.com" }
   ]);
 
+  // useEffect runs by default after every render
+  // render happens after change state
+  useEffect(() => {
+    // using private _users to make it more unique
+    getUsers().then(_users => handleUsers(_users));
+  }, []);
+
   //const users = ;
 
   function handleDelete(id) {
     //debugger;
-    const newUsers = users.filter(user => user.id !== id);
-    handleUsers(newUsers);
+    // local deleting in place, no persistence
+    // const newUsers = users.filter(user => user.id !== id);
+    // handleUsers(newUsers);
+    deleteUser(id).then(_users => handleUsers(_users));
   }
   //debugger;
   return (
