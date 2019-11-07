@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import getUsers, { deleteUser } from "./api/userApi";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const h1Style = {
-    color: "red",
-    fontWeight: "bold"
-  };
-
   const [users, handleUsers] = useState([
     { id: 1, name: "Cory", email: "Cory@c.com" },
     { id: 2, name: "Megan", email: "Megan@m.com" },
@@ -26,31 +22,46 @@ function App() {
   function handleDelete(id) {
     //debugger;
     // local deleting in place, no persistence
-    // const newUsers = users.filter(user => user.id !== id);
-    // handleUsers(newUsers);
-    deleteUser(id).then(_users => handleUsers(_users));
+    deleteUser(id).then(() => {
+      const newUsers = users.filter(user => user.id !== id);
+      handleUsers(newUsers);
+    });
   }
   //debugger;
   return (
     <>
-      <h1 className="header">User List</h1>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>
-            {/* delay execution using the arrow function */}
-            <button name="Delete" onClick={() => handleDelete(user.id)}>
-              Delete
-            </button>
-            {user.name}
-          </li>
-        ))}
-      </ul>
-
-      <label htmlFor="firstName" style={h1Style}>
-        First Name:{" "}
-      </label>
-      <input id="fisrtName" type="text" />
-      <p className="para">My para</p>
+      <table border="1" className="table">
+        <thead>
+          <tr>
+            <td>
+              <b>Id</b>
+            </td>
+            <td>
+              <b>Name</b>
+            </td>
+            <td>
+              <b>Email</b>
+            </td>
+            <td>
+              <b>Action</b>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>
+                <button name="Delete" onClick={() => handleDelete(user.id)}>
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }

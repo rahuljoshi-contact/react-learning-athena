@@ -13,8 +13,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 9. What did we use to create our mock api? why not hard code the json?
 10. what did we use to make an HTTP call?
 11. The tool we used, uses webpack, whats webpack?
+    what is babel? why do we use it?
 12. what is the name of React's "flavor" of HTML?
 13. name at least 3 diff between HTML and JSX?
+14. Is JSX required?
+15. What is JSX compiled into?
+16. What tool checks code quality? is it configurable? how do I see its output?
+17. how do I debug my react app?
+18. I can see my original code in browser. Is the browser running my original code? if not, what tech allows me to review my original code?
+19. What is the function that returns a boolean?
+20. Name some useful array methods that are friendly to immutable data?
 
 ## Available Scripts
 
