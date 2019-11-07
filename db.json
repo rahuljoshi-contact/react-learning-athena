@@ -7,18 +7,18 @@
     },
     {
       "id": 2,
-      "name": "Megan",
-      "email": "Megan@m.com"
+      "name": "Smita",
+      "email": "Smita@s.com"
     },
     {
       "id": 3,
-      "name": "Tammy",
-      "email": "Tammy@t.com"
+      "name": "Jack",
+      "email": "Jack@j.com"
     },
     {
-      "id": 6,
-      "name": "Smita",
-      "email": "Smita@s.com"
+      "id": 4,
+      "name": "RJ",
+      "email": "RJ@rj.com"
     }
   ]
 }
